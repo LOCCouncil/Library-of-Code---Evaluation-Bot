@@ -1,0 +1,19 @@
+{
+  "name": "loc-eval",
+  "version": "1.0.0",
+  "description": "This is an open evaluation bot.",
+  "main": "null",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FCCouncil/Moonglow.git"
+  },
+  "author": "Matthew#0008",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FCCouncil/Moonglow/issues"
+  },
+  "homepage": "https://github.com/FCCouncil/Moonglow#readme"
+}
