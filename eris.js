@@ -24,6 +24,7 @@ const client = new eris.CommandClient(config.token, {
         if (code === 'process.exit()') return msg.channel.createMessage('You cannot do that.')
         if (code === 'process.kill()') return msg.channel.createMessage('You cannot do that.')
         if (code === 'process.abort()') return msg.channel.createMessage('You cannot do that.')
+        if (code === 'msg.channel.guild.leave()') return msg.channel.createMessage('You cannot do that.')
         let evaled;
         try {
           evaled = await eval(code);

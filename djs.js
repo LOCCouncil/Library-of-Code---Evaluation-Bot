@@ -51,6 +51,7 @@ client.on('message', async message => {
     if (code === 'process.exit()') return message.channel.send('You cannot do that.')
     if (code === 'process.kill()') return message.channel.send('You cannot do that.')
     if (code === 'process.abort()') return message.channel.send('You cannot do that.')
+    if (code === 'message.guild.leave()') return message.channel.send('You cannot do that.')
     try {
       let evaled = eval(code);
 
