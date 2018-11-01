@@ -74,8 +74,8 @@ const client = new eris.CommandClient(config.token, {
         'cooldown': 5000,
         'hidden': true,
         'requirements': {
-          //'roleIDs': ['458211172303241227', '468175879395082241', '471776688200613898']
-          'userIDs': ['278620217221971968']
+          'roleIDs': ['507377905370660894']
+          //'userIDs': ['278620217221971968']
         }
       })
 

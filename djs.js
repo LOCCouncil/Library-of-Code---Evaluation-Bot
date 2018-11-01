@@ -45,8 +45,12 @@ client.on('message', async message => {
   const command = args.shift().toLowerCase();
 
   if (command === 'eval' || 'e') {
-      if (message.author.id !== '278620217221971968') return;
+      if (!message.member.roles.has('507377905370660894')) return;
     const code = args.join(' ');
+    if (code === client.disconnect()) return message.channel.send('You cannot do that.')
+    if (code === process.exit()) return message.channel.send('You cannot do that.')
+    if (code === process.kill()) return message.channel.send('You cannot do that.')
+    if (code === process.abort()) return message.channel.send('You cannot do that.')
     try {
       const evaled = eval(code);
       //if (typeof evaled !== 'string')
