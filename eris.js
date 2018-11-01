@@ -129,4 +129,20 @@ const client = new eris.CommandClient(config.token, {
         msg.channel.createMessage({embed: embed});
       })
 
+      process.on('uncaughtException', (err) => {
+        //const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
+        const errorMsg = err.stack;
+        console.log(`Uncaught Exception Error: ${errorMsg}`);
+        //Raven.captureException(err);
+        // Always best practice to let the code crash on uncaught exceptions. 
+        // Because you should be catching them anyway.
+        process.exit(1);
+      });
+      
+      process.on('unhandledRejection', err => {
+        console.log(`Unhandled Rejection Error: ${err.stack}`);
+        //client.channels.get('503374059044601872').send(err);
+        //Raven.captureException(err);
+      });
+
   client.connect()
