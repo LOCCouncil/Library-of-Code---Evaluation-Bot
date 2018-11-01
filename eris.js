@@ -20,10 +20,10 @@ const client = new eris.CommandClient(config.token, {
   
   client.registerCommand('eval', async (msg, args) => {
         const code = args.join(' ');
-        if (code === client.disconnect()) return msg.channel.createMessage('You cannot do that.')
-        if (code === process.exit()) return msg.channel.createMessage('You cannot do that.')
-        if (code === process.kill()) return msg.channel.createMessage('You cannot do that.')
-        if (code === process.abort()) return msg.channel.createMessage('You cannot do that.')
+        if (code === 'client.disconnect()') return msg.channel.createMessage('You cannot do that.')
+        if (code === 'process.exit()') return msg.channel.createMessage('You cannot do that.')
+        if (code === 'process.kill()') return msg.channel.createMessage('You cannot do that.')
+        if (code === 'process.abort()') return msg.channel.createMessage('You cannot do that.')
         let evaled;
         try {
           evaled = await eval(code);

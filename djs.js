@@ -47,12 +47,16 @@ client.on('message', async message => {
   if (command === 'eval' || 'e') {
       if (!message.member.roles.has('507377905370660894')) return;
     const code = args.join(' ');
-    if (code === client.disconnect()) return message.channel.send('You cannot do that.')
-    if (code === process.exit()) return message.channel.send('You cannot do that.')
-    if (code === process.kill()) return message.channel.send('You cannot do that.')
-    if (code === process.abort()) return message.channel.send('You cannot do that.')
+    if (code === 'client.disconnect()') return message.channel.send('You cannot do that.')
+    if (code === 'process.exit()') return message.channel.send('You cannot do that.')
+    if (code === 'process.kill()') return message.channel.send('You cannot do that.')
+    if (code === 'process.abort()') return message.channel.send('You cannot do that.')
     try {
-      const evaled = eval(code);
+      let evaled = eval(code);
+
+      if (typeof evaled === 'string') {
+      evaled = evaled.replace(client.token, '[TOKEN]');
+      }
       //if (typeof evaled !== 'string')
       //evaled = require('util').inspect(evaled, {depth:1});
       const clean = await client.clean(client, evaled);
